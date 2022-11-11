@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <title>Client</title>
+    <script src="client.js"></script>
+    <script>
+        window.onload=init;
+    </script>
+</head>
+<body>
+    <!-- HEADER -------------------->
+    <div id="head"> 
+        <h1 id="titel"> Iot-Quiz-Applikation</h1>
+        <h2 id="h1">Nicht geladen</h2>
+    </div>
+    
+    <div id="main">
+        <div id="container">
+            <div id="eingabe">
+                <label for="name">Spielername:</label>
+                <input type="text" id="name" name="name" required> <br>
+
+                <label for="maca">MacAdresse:</label>
+                <input type="text" id="maca" name="maca" required> <br>
+
+                <button id="Button" class="button">Beitreten</button>
+            </div>
+            <div id="spielerliste">
+               <table id="tabelle">
+                   
+               </table> 
+            </div>
+            <div id="container2" class="center">
+               
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

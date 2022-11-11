@@ -1,0 +1,8 @@
+Abschließend lässt sich sagen, dass wir lediglich einen Prototypen bauen konnten. 
+Der ESP übermittelt nicht die genaue Uhrzeit in Millisekunden und somit lässt sich nicht exakt auswerten, welche Person 
+tatsächlich zuerst den Buzzer betätigt hat. Unsere Auswertung erfolgt lediglich auf Basis der zuerst ankommenden Nachricht.
+Zusätzlich findet zwischen Auswertung der MAC-Adresse und Anzeige im Frontend noch ein AJAX-Request statt, welcher die Ergebnisse verfälschen kann. 
+Ebenso finden sich im Backend bzw. im Zusammenspiel von Backend und Frontend noch einige kleine Bugs, so funktioniert das nachträgliche
+Beitreten zum Spiel nicht optimal und die Antwortmöglichkeiten könnten als html oder Javascript Code interpretiert werden. 
+Dennoch konnten wir unsere Projektidee umsetzen, ein Quiz welches über Buzzer gesteuert wird und über alle Clients hinweg synchron abläuft. 
+Dabei direkt an der Hardware zu "basteln" hat uns sehr viel Spaß gemacht und gleichzeitig einen Einblick in die IoT Welt ermöglicht. 

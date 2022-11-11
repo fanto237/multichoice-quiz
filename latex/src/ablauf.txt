@@ -1,0 +1,14 @@
+Gestartet wird die Applikation auf der client.html Seite. 
+Auf dieser Webseite wird der Spieler:innen Name und die MAC-Adresse vom ESP32 eingegeben und validiert. 
+Die MAC-Adresse muss mit der Doppelpunkt-Notation angegeben werden. Ist die Eingabe gültig, werden die Informationen in redis in einer Liste gespeichert. 
+Da dies eine unsortierte Liste von Strings ist, wird MAC-Adresse und der Username zu einem String konkateniert und schließlich der Liste hinzugefügt.\newline 
+Anschließend wird die Liste ausgewertet und auf der Webseite userfreundlich dargestellt. 
+Somit werden alle schon angemeldete User angezeigt, aber um nicht ständig den Server mit Anfragen nach neuen Usern zu beschäftigen, 
+wird der Redis Channel über den Websocket abonniert. Außerdem wird nicht nur nach neuen Spielern gelauscht, sondern auch auf den Spielbeginn.\newline
+Jeder Client kann den Spielbeginn auslösen, welches über den Redis-Channel jedem Client mitgeteilt wird. 
+Ist dies der Fall, wird der Client auf eine andere Seite weitergeleitet. Auch diese Webseite stellt wieder eine Websocket Verbindung zum Server her. 
+Nun beginnt der eigentliche Spielablauf. Jedes Mal wenn eine neue Runde gestartet wird, lädt der Server eine Frage aus der Quiz-API. 
+Jeder Client liest anschließend diese Frage vom Server ein und stellt sie inklusiv der Antwortmöglichkeiten grafisch dar. Sobald eine der Spieler:innen, 
+meint die Antwort zu wissen und der Taster gedrückt wird, veröffentlicht der Client seine MAC-Adresse auf dem Redis-Channel. 
+Dies ist für die anderen Clients der Hinweis die Runde zu sperren und nach 5 Sekunden die richtige Antwort anzuzeigen. 
+Sobald dies geschehen ist, können alle User eine neue Runde starten und der Ablauf beginnt erneut. 

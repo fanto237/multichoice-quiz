@@ -1,0 +1,8 @@
+Unser Projekt soll es ermöglichen, dass mehrere Teilnehmende zusammmen an einem Online-Quiz teilnehmen. 
+Bei diesem Quiz spielen die Spieler:innen gegeneinander und können über einen Buzzer mitteilen, dass sie die Antwort
+wissen. Je nachdem welche Person zuerst gebuzzert hat, darf die Antwort geben. Entsprechend bedurfte es für die Umsetzung unserer 
+Idee einen Buzzer, welcher eine den Spieler:innen zugeordnete ID an das Spiel (den Spieleserver) überträgt und das Frontend für unser Spiel. 
+Als Buzzer soll der ESP dienen, welcher mittels Taster ausgestattet die ID an das Backend überträgt. Der Spieleserver muss eine graphische (Web)Oberfläche besitzen, 
+die Spieler:innen verwalten, Fragen anzeigen und die jeweiligen IDs der Buzzer auswerten und anzeigen. Zusätzlich ist es nötig, dass der Spielablauf bei allen Teilnehmenden
+synchron angezeigt wird. \newline
+Im Folgenden wollen wir darstellen, wie wir diese Idee in einem kleinen Prototyp umgesetzt haben. 

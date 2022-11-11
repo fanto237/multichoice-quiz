@@ -1,0 +1,14 @@
+Alle Clients müssen Informationen über den aktuellen Spielzustand erhalten. 
+Damit die unterschiedlichen Clients miteinander kommunizieren können, eröffnet jeder Client eine Websocket Verbindung mit dem Backend-Server.
+Dabei wird eine bidirektionale Verbindung über das TCP-Protokoll aufgebaut. \newline
+Das Backend-System wird in der Docker-Infrastruktur der Hochschule Bremerhaven gehostet. 
+Als Websocket-Server wird das schon vorinstallierte command-line Tool websocketd genutzt. 
+Dieser Websocket-Server startet für jeden Client ein neues Shell-Skript, welches die vom Client eingehenden Nachrichten an alle anderen Clients 
+verteilt. Um dieses Senden und Empfangen von Nachrichten zu realisieren wird die In-Memory Datenbank redis verwendet. 
+Redis ist nicht nur eine NoSQL Datenbank, 
+welche auch zur Speicherung von Spielerinformationen genutzt wird, sondern unterstützt den Publish und Subscribe Standard (kurz: pub/sub). \newline
+Hierbei werden Daten prozessübergreifend an sogenannten Channels veröffentlicht (publish). 
+Andere Prozesse können auf diesen Channeln lauschen bzw. abonnieren (subscribe). 
+Außerdem wird mithilfe asynchronem Javascript und XML (englisch: "Asynchronous JavaScript and XML” , kurz: AJAX)  
+Daten aus der Redis Datenbank nachgeladen. Dies passiert immer dann, wenn einmalig Daten gelesen, verifiziert oder geschrieben werden. 
+Hierfür wird ein PHP-Skript geladen, welches die Verbindung zu Redis ermöglicht.

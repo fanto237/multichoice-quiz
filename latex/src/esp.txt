@@ -1,0 +1,13 @@
+Für unseren Buzzer, braucht es einen relativ simplen Aufbau, welcher grundsätzlich nur auf den Druck eines Tasters bzw. auf das Schließen eines Stromkreises 
+reagiert. Dieser simple Aufbau hatte jedoch das Problem, dass das Auslösen oft durch einfache Berührungen des Controllers geschehen ist. Aus diesem Grund
+haben wir zusätzlich einen Pull-Down Widerstand eingebaut, somit wird der Taster zuverlässig wieder auf den Zustand 'LOW' gebracht. 
+Darüber hinaus haben wir unseren Aufbau um eine LED erweitert, welche optisches Feedback während des Netzwerkaufbaues gibt und bei jedem Tasterdruck einmal aufleuchtet. 
+
+\begin{center}
+\includegraphics{abbildungen/Schaltung.png}
+\captionof{figure}{Aufbau ESP}
+\end{center}
+
+Auf Softwareseite haben wir die Bestandteile der Veranstaltungen umgesetzt, so baut unser ESP eine Wifi Verbindung auf und kann OTA Updates einspielen. Darüber hinaus wird eine
+Verbindung zum Websocket hergestellt und eingehende Nachrichten werden an die Serielleschnittstelle übergeben. Wird der Taster betätigt, wird in einer Nachricht die MAC-Adresse des Gerätes 
+an den Websocket übertragen. Leider mussten wir auf die Übertragung der Uhrzeit verzichten, da lediglich eine Zeitangabe in Sekunden möglich gewesen wäre, in unserem Fall ist dies nicht ausreichend.
